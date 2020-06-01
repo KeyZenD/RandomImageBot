@@ -25,10 +25,8 @@ def send_ping(message):
 @bot.message_handler(commands=['start'])
 def send_markup(message):
 	chat_id = message.chat.id	
-	markup = types.ReplyKeyboardMarkup()
-	itembtn1 = types.KeyboardButton('/furpic')
-	itembtn2 = types.KeyboardButton('/furgif')
-	markup.add(itembtn1, itembtn2)
+	markup = types.ReplyKeyboardMarkup(True, False)
+	markup.row('/furpic', '/furgif')
 	bot.send_message(chat_id, "Что отослать?", reply_markup=markup)
 
 bot.polling()
